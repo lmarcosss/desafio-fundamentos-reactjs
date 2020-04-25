@@ -1,7 +1,11 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 interface ContainerProps {
   size?: 'small' | 'large';
+}
+
+interface SelectedLinkProps {
+  hasSelected: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -17,20 +21,41 @@ export const Container = styled.div<ContainerProps>`
     justify-content: space-between;
 
     nav {
-      a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 16px;
-        transition: opacity 0.2s;
+      display: flex;
 
-        & + a {
+      div {
+        & + div {
           margin-left: 32px;
         }
 
-        &:hover {
-          opacity: 0.6;
+        a {
+          color: #fff;
+          text-decoration: none;
+          font-size: 16px;
+          transition: opacity 0.2s;
+
+          &:hover {
+            opacity: 0.6;
+          }
         }
       }
     }
   }
+`;
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
+
+export const SelectedLink = styled.div<SelectedLinkProps>`
+  width: 73px;
+  height: ${({ hasSelected }) => (hasSelected ? '2px' : '0')};
+  animation: ${({ hasSelected }) => hasSelected && fadeIn} 0.4s linear;
+  background: #ff872c;
 `;
