@@ -11,6 +11,7 @@ import Header from '../../components/Header';
 
 import formatValue from '../../utils/formatValue';
 import formatDate from '../../utils/formatDate';
+import sortData from '../../utils/sortData';
 
 import { Container, CardContainer, Card, TableContainer } from './styles';
 
@@ -32,7 +33,7 @@ interface Balance {
 }
 
 interface Column {
-  name: string;
+  name: 'Título' | 'Preço' | 'Categoria' | 'Data';
   direction: string;
 }
 
@@ -85,10 +86,26 @@ const Dashboard: React.FC = () => {
     const newColumns = columns.map(column => {
       if (column.name === columnName) {
         if (column.direction === 'crescent') {
-          return { name: column.name, direction: 'decrescent' };
+          const newColumn = { name: column.name, direction: 'decrescent' };
+          const sortedTransactions = sortData(
+            transactions,
+            newColumn.name,
+            newColumn.direction,
+          );
+          setTransactions(sortedTransactions);
+          return newColumn;
         }
-        return { name: column.name, direction: 'crescent' };
+        const newColumn = { name: column.name, direction: 'crescent' };
+        const sortedTransactions = sortData(
+          transactions,
+          newColumn.name,
+          newColumn.direction,
+        );
+
+        setTransactions(sortedTransactions);
+        return newColumn;
       }
+
       return { name: column.name, direction: 'none' };
     });
 
@@ -105,7 +122,9 @@ const Dashboard: React.FC = () => {
               <p>Entradas</p>
               <img src={income} alt="Income" />
             </header>
-            <h1 data-testid="balance-income">{formatValue(balance.income)}</h1>
+            <h1 data-testid="balance-income">
+              {formatValue(balance.income || 0)}
+            </h1>
           </Card>
           <Card>
             <header>
@@ -113,7 +132,7 @@ const Dashboard: React.FC = () => {
               <img src={outcome} alt="Outcome" />
             </header>
             <h1 data-testid="balance-outcome">
-              {formatValue(balance.outcome)}
+              {formatValue(balance.outcome || 0)}
             </h1>
           </Card>
           <Card total>
@@ -121,7 +140,9 @@ const Dashboard: React.FC = () => {
               <p>Total</p>
               <img src={total} alt="Total" />
             </header>
-            <h1 data-testid="balance-total">{formatValue(balance.total)}</h1>
+            <h1 data-testid="balance-total">
+              {formatValue(balance.total || 0)}
+            </h1>
           </Card>
         </CardContainer>
 
