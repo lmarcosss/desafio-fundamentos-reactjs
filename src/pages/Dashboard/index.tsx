@@ -68,6 +68,10 @@ const Dashboard: React.FC = () => {
         (transaction: Transaction) => ({
           ...transaction,
           formattedDate: formatDate(transaction.created_at),
+          value:
+            transaction.type === 'outcome'
+              ? Number(-1 * transaction.value)
+              : transaction.value,
           formattedValue: `
             ${transaction.type === 'outcome' ? '- ' : ''}
             ${formatValue(transaction.value)}
