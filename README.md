@@ -8,6 +8,8 @@ Framework utilizado:
 Libs Utilizadas: 
 * Styled-Components: Utilizar javascript no estilo;
 * Axios: Para fazer as chamadas da API;
+* Fast-Sort: Utilizado para criar as ordenações;
+* React-Icons: Ícones para o projeto;
 
 Features Novas: 
 * É possível ordenar pela coluna desejada;
