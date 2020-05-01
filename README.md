@@ -14,5 +14,6 @@ Para instalar as dependências:
 
 Para rodar o projeto: ` yarn start `
 
-Tela de Listagem
+Tela de Listagem:
+
 ![alt text](https://i.ibb.co/KVdFF6L/Screen-Shot-2020-05-01-at-2-04-01-AM.png)
