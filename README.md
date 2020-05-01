@@ -23,10 +23,12 @@ Para rodar o projeto: ` yarn start `
 
 ## Telas
 
-* Listagem
+* Listagem:
+
 
 ![Listagem](https://i.ibb.co/KVdFF6L/Screen-Shot-2020-05-01-at-2-04-01-AM.png)
 
 * Importação de CSV: 
+
 
 ![Importacao](https://i.ibb.co/6nCH7fc/Screen-Shot-2020-05-01-at-2-17-52-AM.png)
