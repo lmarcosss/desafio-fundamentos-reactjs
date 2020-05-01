@@ -9,6 +9,11 @@ Libs Utilizadas:
 * Styled-Components: Utilizar javascript no estilo;
 * Axios: Para fazer as chamadas da API;
 
+Features Novas: 
+* É possível ordenar pela coluna desejada;
+
+## Comandos
+
 Para instalar as dependências: 
 ` yarn install `
 
