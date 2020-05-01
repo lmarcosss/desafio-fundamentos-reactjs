@@ -21,10 +21,12 @@ Para instalar as dependências:
 
 Para rodar o projeto: ` yarn start `
 
-### Tela de Listagem:
+## Telas
+
+* Listagem
 
 ![Listagem](https://i.ibb.co/KVdFF6L/Screen-Shot-2020-05-01-at-2-04-01-AM.png)
 
-### Tela de Importação de CSV: 
+* Importação de CSV: 
 
 ![Importacao](https://i.ibb.co/6nCH7fc/Screen-Shot-2020-05-01-at-2-17-52-AM.png)
